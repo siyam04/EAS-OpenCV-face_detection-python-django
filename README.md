@@ -1,2 +1,2 @@
-# eas-dev-django
-Powered By Django (Python) Web Framework.
+# Employees Attendance System
+## Powered By Django (Python) Web Framework.
