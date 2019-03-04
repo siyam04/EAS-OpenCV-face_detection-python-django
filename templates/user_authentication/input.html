@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input</title>
+</head>
+
+<body style="background-color: lightblue">
+
+    <h1>Input an ID for matching</h1>
+    <hr>
+    <hr>
+
+    <form method="post" action="{% url 'input' %}">
+        {% csrf_token %}
+
+        <h4>input here</h4>
+
+        <input type="number" min="1" name="id" value="Submit" placeholder="enter an ID..." required>
+        <br><br>
+        <input type="submit" value="SUBMIT">
+    </form>
+
+</body>
+</html>

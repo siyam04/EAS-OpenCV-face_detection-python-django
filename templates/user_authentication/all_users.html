@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+
+<body style="background-color: lightblue">
+
+    <h1>All Users</h1>
+    <hr>
+    <hr>
+
+    {% for users in user_data_all %}
+
+        {% if users.profile_image %}
+            <img src="{{ users.profile_image.url }}" alt="image" width="240">
+        {% endif %}
+
+            <h2>id: {{ users.id }}</h2>
+            <h2>name: {{ users.name }}</h2>
+        <hr>
+    {% endfor %}
+
+</body>
+</html>
