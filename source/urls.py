@@ -18,17 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 
-# Same app
-from .views import home
-
 
 urlpatterns = [
 
     # System dashboard path
     path('admin/', admin.site.urls),
-
-    # Home path
-    path('', home, name='home'),
 
     # user_authentication app's path
     path('user/', include('user_authentication.urls')),
