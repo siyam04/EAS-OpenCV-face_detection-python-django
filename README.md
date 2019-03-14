@@ -8,7 +8,7 @@
 * Install all the requirements: pip install -r requirements.txt
 * Run local server: python manage.py runserver
 * Type those URL to the browser: 
-* http://127.0.0.1:8000/admin/ (ID: team123, PASS: team123team)
+* http://127.0.0.1:8000/admin/
 * http://127.0.0.1:8000/user/input/
 * http://127.0.0.1:8000/user/all-users/
 * http://127.0.0.1:8000/user/single-user/1/
