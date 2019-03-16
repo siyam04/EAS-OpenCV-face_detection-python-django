@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -55,11 +55,16 @@ def update_attendance(request):
     """Custom API for take input from OpenCV file"""
 
     user_id = request.POST.get('id')
+
     if Profile.objects.filter(pk=user_id).exists():
-        p = Profile.objects.get(pk=user_id)
-        a = Authentication(profile=p, is_active=True)
-        a.save()
-        return Response("Attendance Created", status=status.HTTP_201_CREATED)
+        verified_id = Profile.objects.get(pk=user_id)
+        authenticate = Authentication(profile=verified_id, is_active=True)
+        data = authenticate.save()
+        print(data)
+
+        # return Response("Attendance Created!", status=status.HTTP_201_CREATED)
+        return redirect('single-user', id=verified_id)
+
     else:
-        return Response("Profile not found", status= status.HTTP_404_NOT_FOUND)
+        return Response("Profile not found!", status= status.HTTP_404_NOT_FOUND)
 

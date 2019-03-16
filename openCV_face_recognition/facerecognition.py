@@ -1,4 +1,5 @@
 import os
+import requests
 import face_recognition
 import numpy as np
 import cv2
@@ -47,10 +48,17 @@ while True:
                     print(str)
                     print(i)
                     print("Matched: " + known_face_names[i])
+                    id = i
+                    name = str
+
+                    data_send = requests.post('http://localhost:8000/user/update-attendance', data={'id': id})
+                    print(data_send)
+
                     # TODO: Mapping 'known_face_names[i]' to the saved data into database
                     # TODO: Return API here with 'id' from 'need_to_add.py' file
-                #else:
-                    #print("Not matched: " + known_face_names[i])
+                else:
+                    print("Not matched: " + known_face_names[i])
+
     # Display the resulting image
     cv2.imshow('Video', frame)
     # Hit 'q' on the keyboard to quit!
