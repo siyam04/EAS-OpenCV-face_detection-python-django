@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # Custom Apps
     'user_authentication',
+    'openCV_face_recognition',
 
 
 ]
