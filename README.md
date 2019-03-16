@@ -2,6 +2,7 @@
 * Powered By Django (Python) Web Framework
 
 ## Instructions:
+* Install latest version of Python
 * Create and active a virtual environment
 * Clone this project into virtual environment directory
 * Go to project directory where 'manage.py' file exist
