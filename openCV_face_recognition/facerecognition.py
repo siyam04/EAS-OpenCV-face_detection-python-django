@@ -12,6 +12,7 @@ for i in os.listdir('images'):
     pic = face_recognition.load_image_file('images/'+i)
     known_face_encodings.append(face_recognition.face_encodings(pic)[0])
     known_face_names.append(i[:i.rfind('_')])
+    # TODO: create dictionary of 'known_face_names'
 
 video_capture = cv2.VideoCapture(0)
 
@@ -46,6 +47,8 @@ while True:
                     print(str)
                     print(i)
                     print("Matched: " + known_face_names[i])
+                    # TODO: Mapping 'known_face_names[i]' to the saved data into database
+                    # TODO: Return API here with 'id' from 'need_to_add.py' file
                 #else:
                     #print("Not matched: " + known_face_names[i])
     # Display the resulting image
