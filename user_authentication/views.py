@@ -3,9 +3,11 @@ import os
 import face_recognition
 import numpy as np
 import cv2
-
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 # Same app
-from .models import Profile
+from .models import Profile, Authentication
 
 
 def input(request):
@@ -49,4 +51,14 @@ def all_users(request):
 
     return render(request, template, context)
 
+@api_view(['POST'])
+def update_attendance(request):
+    user_id = request.POST.get('id')
+    if Profile.objects.filter(pk = user_id).exists():
+        p = Profile.objects.get(pk = user_id)
+        a = Authentication(profile=p, is_active=True)
+        a.save()
+        return Response("Attendance Created", status=status.HTTP_201_CREATED)
+    else:
+        return Response("Profile not found", status= status.HTTP_404_NOT_FOUND)
 
