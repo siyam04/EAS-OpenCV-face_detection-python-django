@@ -1,8 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-import os
-import face_recognition
-import numpy as np
-import cv2
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -36,6 +32,7 @@ def input(request):
 
 def single_user(request, id=None):
     """Returns single user's data"""
+
     profile = get_object_or_404(Profile, id=id)
     context = {'profile': profile}
     template = 'user_authentication/single_user.html'
@@ -45,17 +42,21 @@ def single_user(request, id=None):
 
 def all_users(request):
     """Returns All User's info"""
+
     user_data_all = Profile.objects.all().order_by('-id')
     template = 'user_authentication/all_users.html'
     context = {'user_data_all': user_data_all}
 
     return render(request, template, context)
 
+
 @api_view(['POST'])
 def update_attendance(request):
+    """Custom API for take input from OpenCV file"""
+
     user_id = request.POST.get('id')
-    if Profile.objects.filter(pk = user_id).exists():
-        p = Profile.objects.get(pk = user_id)
+    if Profile.objects.filter(pk=user_id).exists():
+        p = Profile.objects.get(pk=user_id)
         a = Authentication(profile=p, is_active=True)
         a.save()
         return Response("Attendance Created", status=status.HTTP_201_CREATED)

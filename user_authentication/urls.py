@@ -9,7 +9,7 @@ urlpatterns = [
     path('input/', input, name='input'),
     path('all-users/', all_users, name='all-users'),
     path('single-user/<int:id>/', single_user, name='single-user'),
-    path('upddate-attendance', update_attendance, name='update-attendance')
+    path('update-attendance', update_attendance, name='update-attendance')
 
 ]
 

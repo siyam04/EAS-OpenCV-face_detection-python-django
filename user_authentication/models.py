@@ -19,12 +19,5 @@ class Authentication(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=False)
 
-    # STATUS = (
-    #     ('Present', 'PRESENT'),
-    #     ('Absent', 'ABSENT'),
-    # )
-    #
-    # is_active = models.BooleanField(choices=STATUS)
-
     def __str__(self):
         return str(self.is_active)
