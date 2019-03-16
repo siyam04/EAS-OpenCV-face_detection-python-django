@@ -1,8 +1,8 @@
-# import the libraries
 import os
 import face_recognition
 import numpy as np
 import cv2
+
 # make a list of all the available images
 images = os.listdir('images')
 known_face_encodings=[]
@@ -13,14 +13,16 @@ for i in os.listdir('images'):
     known_face_encodings.append(face_recognition.face_encodings(pic)[0])
     known_face_names.append(i[:i.rfind('_')])
 
-video_capture = cv2.VideoCapture(0) 
+video_capture = cv2.VideoCapture(0)
+
 while True: 
     # load your image
     _, frame = video_capture.read()
     frameRGB = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
-    #image_to_be_matched = face_recognition.load_image_file('testImage/enhanced.png')
+    # image_to_be_matched = face_recognition.load_image_file('testImage/enhanced.png')
     # encoded the loaded image into a feature vector
     image_to_be_matched_encoded = face_recognition.face_encodings(frameRGB)
+
     if len(image_to_be_matched_encoded)>0:
     # iterate over each image
         for (i, image) in enumerate(known_face_encodings):
@@ -39,7 +41,7 @@ while True:
                 #print(distance)
                 #print(result)
                 #check if it was a match
-                if distance<=0.40:
+                if distance <= 0.40:
                     str = known_face_names[i]
                     print(str)
                     print(i)
