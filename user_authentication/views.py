@@ -1,4 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+import os
+import face_recognition
+import numpy as np
+import cv2
 
 # Same app
 from .models import Profile
