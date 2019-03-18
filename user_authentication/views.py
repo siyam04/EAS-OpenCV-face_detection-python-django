@@ -68,3 +68,27 @@ def update_attendance(request):
     else:
         return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)
 
+#######################################################################################
+
+from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.response import Response
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.shortcuts import redirect
+import datetime
+import json
+
+class Users(viewsets.ViewSet):
+	def list(self, request):
+		user_id = request.GET.get('id')
+		if Profile.objects.filter(pk=user_id).exists():
+			verified_id = Profile.objects.get(pk=user_id)
+			authenticate = Authentication(profile=verified_id, is_active=True)
+			data = authenticate.save()
+			print(data)
+			return Response({'message': 'Attendance Created!', 'detials': '201'})
+
+
+# HttpStreamingResponse

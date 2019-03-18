@@ -14,7 +14,7 @@ class ProfileAdmin(admin.ModelAdmin):
 class AuthenticationAdmin(admin.ModelAdmin):
     list_display = ['id', 'profile', 'date_time', 'is_active']
     list_display_links = ['profile']
-    list_filter = ['is_active', 'id']
+    list_filter = ['is_active', 'profile']
     search_fields = ['id', 'is_active']
 
 

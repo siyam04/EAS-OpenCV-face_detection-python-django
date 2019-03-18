@@ -3,6 +3,7 @@ import requests
 import face_recognition
 import numpy as np
 import cv2
+###########################################
 
 # make a list of all the available images
 images = os.listdir('images')
@@ -49,7 +50,17 @@ while True:
                     print("List Data\n" + "name: " + known_face_names[i] + "\nid: " + str(id))
 
                     # data_send = requests.post('http://localhost:8000/user/update-attendance', data={'id': id})
-                    data_send = requests.post('http://127.0.0.1:8000/user/input/', data={'id': id})
+                    # data_send = requests.post('http://127.0.0.1:8000/user/input/', data={'id': id})
+            ###########################################################################
+                    URL = "http://127.0.0.1:8000/users/"
+
+                    # defining a params dict for the parameters to be sent to the API 
+                    PARAMS = {'id':2}
+
+                    # sending get request and saving the response as response object 
+                    data_send = requests.get(url = URL, params = PARAMS)
+                    ###########################################################################
+                    # data_send = requests.post('http://127.0.0.1:8000/users/', data={'id': id})
                     print(data_send, '\n')
 
                 # else:
