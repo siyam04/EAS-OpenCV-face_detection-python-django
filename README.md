@@ -1,8 +1,14 @@
 # Employees Attendance System
-* Powered By Django (Python) Web Framework
+* Powered By Django(Python), OpenCV, Deep Learning.
 
-## Instructions:
-* Install latest version of Python
+## Install latest version of Python
+
+## Instructions to run OpenCV Face Detection:
+* Goto > employee_attendance_system-django/openCV_face_recognition:
+* Open terminal here
+* Type and Hit Enter: python facerecognition.py
+
+## Instructions to run Django App in the browser:
 * Create and active a virtual environment
 * Clone this project into virtual environment directory
 * Go to project directory where 'manage.py' file exist
