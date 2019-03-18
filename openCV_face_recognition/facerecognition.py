@@ -44,20 +44,17 @@ while True:
                 #print(result)
                 #check if it was a match
                 if distance <= 0.40:
-                    str = known_face_names[i]
-                    print(str)
-                    print(i)
-                    print("Matched: " + known_face_names[i])
+                    user_name = known_face_names[i]
                     id = i
-                    name = str
+                    print("List Data\n" + "name: " + known_face_names[i] + "\nid: " + str(id))
 
-                    data_send = requests.post('http://localhost:8000/user/update-attendance', data={'id': id})
-                    print(data_send)
+                    # data_send = requests.post('http://localhost:8000/user/update-attendance', data={'id': id})
+                    data_send = requests.post('http://127.0.0.1:8000/user/input/', data={'id': id})
+                    print(data_send, '\n')
 
-                    # TODO: Mapping 'known_face_names[i]' to the saved data into database
-                    # TODO: Return API here with 'id' from 'need_to_add.py' file
-                else:
-                    print("Not matched: " + known_face_names[i])
+                # else:
+                #     print("Not matched: " + known_face_names[i])
+
 
     # Display the resulting image
     cv2.imshow('Video', frame)

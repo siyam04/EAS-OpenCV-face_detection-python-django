@@ -62,9 +62,9 @@ def update_attendance(request):
         data = authenticate.save()
         print(data)
 
-        # return Response("Attendance Created!", status=status.HTTP_201_CREATED)
-        return redirect('single-user', id=verified_id)
+        return Response("Attendance Created!", status=status.HTTP_201_CREATED)
+        # return redirect('single-user', id=verified_id)
 
     else:
-        return Response("Profile not found!", status= status.HTTP_404_NOT_FOUND)
+        return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)
 
