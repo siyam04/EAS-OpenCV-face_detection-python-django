@@ -1,10 +1,47 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from rest_framework import status
+import json
+from datetime import datetime
+from django.urls import reverse
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+
 # Same app
 from .models import Profile, Authentication
 
+
+############################## Attendance Creating API views from OpenCV #############################
+
+class Users(viewsets.ViewSet):
+    """Receives data from OpenCV file using API"""
+    def list(self, request):
+        """Matching Process through API Data"""
+
+        # TODO: Receives only the 201 request before matching
+
+        # Receive id from OpenCV Data List
+        user_id = request.GET.get('id')
+
+        # Matching OpenCV id with Permanent Object id from Database
+        if Profile.objects.filter(pk=user_id).exists():
+            verified_id = Profile.objects.get(pk=user_id)
+
+            # If matched, then save the id with Authentication table
+            authenticate = Authentication(profile=verified_id, is_active=True)
+            authenticate.save()
+
+            # Output to the Terminal
+            print(authenticate)
+
+            # Returns Status 201 for Success!
+            return Response("Attendance Created!", status=status.HTTP_201_CREATED)
+        else:
+            # Returns Status 404 for Not Matching!
+            return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)
+
+
+################################# Manual matching views for Django ###################################
 
 def input(request):
     """Input Authenticated User's info"""
@@ -20,75 +57,31 @@ def input(request):
 
         # Mapping with saved data
         profile = get_object_or_404(Profile, id=id)
-        template = 'user_authentication/single_user.html'
+
+        template = 'user_authentication/manual_single_user.html'
         context = {'profile': profile}
+
         # Shows data if matched
         return render(request, template, context)
 
     # Returns input page if no submission
     template = 'user_authentication/input.html'
+
     return render(request, template)
 
 
 def single_user(request, id=None):
     """Returns single user's data"""
-
     profile = get_object_or_404(Profile, id=id)
     context = {'profile': profile}
     template = 'user_authentication/single_user.html'
-
     return render(request, template, context)
 
 
 def all_users(request):
     """Returns All User's info"""
-
     user_data_all = Profile.objects.all().order_by('-id')
     template = 'user_authentication/all_users.html'
     context = {'user_data_all': user_data_all}
-
     return render(request, template, context)
 
-
-@api_view(['POST'])
-def update_attendance(request):
-    """Custom API for take input from OpenCV file"""
-
-    user_id = request.POST.get('id')
-
-    if Profile.objects.filter(pk=user_id).exists():
-        verified_id = Profile.objects.get(pk=user_id)
-        authenticate = Authentication(profile=verified_id, is_active=True)
-        data = authenticate.save()
-        print(data)
-
-        return Response("Attendance Created!", status=status.HTTP_201_CREATED)
-        # return redirect('single-user', id=verified_id)
-
-    else:
-        return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)
-
-#######################################################################################
-
-from django.shortcuts import render
-from rest_framework import viewsets
-from rest_framework.response import Response
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.shortcuts import redirect
-import datetime
-import json
-
-class Users(viewsets.ViewSet):
-	def list(self, request):
-		user_id = request.GET.get('id')
-		if Profile.objects.filter(pk=user_id).exists():
-			verified_id = Profile.objects.get(pk=user_id)
-			authenticate = Authentication(profile=verified_id, is_active=True)
-			data = authenticate.save()
-			print(data)
-			return Response({'message': 'Attendance Created!', 'detials': '201'})
-
-
-# HttpStreamingResponse

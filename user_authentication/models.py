@@ -13,7 +13,7 @@ class Profile(models.Model):
 
 
 class Authentication(models.Model):
-    """Changing Status of a user"""
+    """Changing Status of a User based on real OpenCV Data"""
 
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     date_time = models.DateTimeField(auto_now_add=True)
