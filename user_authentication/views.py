@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from rest_framework.views import APIView
 
 # Same app
 from .models import Profile, Authentication
@@ -13,29 +14,30 @@ from .models import Profile, Authentication
 
 ############################## Attendance Creating API views from OpenCV #############################
 
-class Users(viewsets.ViewSet):
+class Users(APIView):
     """Receives data from OpenCV file using API"""
-    def list(self, request):
+    def get(self, request, user_id):
         """Matching Process through API Data"""
 
-        # TODO: Receives only the 201 request before matching
-
         # Receive id from OpenCV Data List
-        user_id = request.GET.get('id')
+        # user_id = id
 
         # Matching OpenCV id with Permanent Object id from Database
         if Profile.objects.filter(pk=user_id).exists():
+
             verified_id = Profile.objects.get(pk=user_id)
 
             # If matched, then save the id with Authentication table
             authenticate = Authentication(profile=verified_id, is_active=True)
+
+            # TODO: Save only 1 time. Need to check a condition if this instance is already saved or NOT
             authenticate.save()
 
             # Output to the Terminal
             print(authenticate)
 
             # Returns Status 201 for Success!
-            return Response("Attendance Created!", status=status.HTTP_201_CREATED)
+            return Response("Attendance Created! of {}".format(user_id), status=status.HTTP_201_CREATED)
         else:
             # Returns Status 404 for Not Matching!
             return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)

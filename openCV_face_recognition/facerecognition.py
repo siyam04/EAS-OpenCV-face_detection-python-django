@@ -57,15 +57,15 @@ while True:
                     id = i
                     print("----OpenCV List Data----\n" + "name: " + known_face_names[i] + "\nid: " + str(id))
 
-                    # URL = "http://127.0.0.1:8000/users/"
-                    URL = "http://127.0.0.1:8000/matched-user/"
+                    # Django API receives the Matched user ID from OpenCV
+                    URL = "http://127.0.0.1:8000/matched-user/" + "2"
 
                     # defining a params dict for the parameters to be sent to the API
-                    PARAMS = {'id': 2}
+                    # PARAMS = {'id': 2}
 
                     # TODO: Check this condition before data send. Make sure only 201 will be sent
                     # sending get request and saving the response as response object
-                    data_send = requests.get(url=URL, params=PARAMS)
+                    data_send = requests.get(url=URL)
 
                     print(data_send, '\n')
 

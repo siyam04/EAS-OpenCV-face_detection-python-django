@@ -7,10 +7,8 @@ from .views import input, single_user, all_users
 urlpatterns = [
 
     path('input/', input, name='input'),
-    # path('auto-input/', auto_input, name='auto-input'),
     path('all-users/', all_users, name='all-users'),
     path('single-user/<int:id>/', single_user, name='single-user'),
-    # path('update-attendance', update_attendance, name='update-attendance')
 
 ]
 

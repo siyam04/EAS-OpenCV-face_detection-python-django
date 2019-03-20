@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
 from rest_framework import routers
-from django.conf.urls import url, include
+# from django.conf.urls import url, include
 from django.conf.urls.static import static
 
 # App views
@@ -27,7 +27,7 @@ from user_authentication.views import Users
 
 # Router DRF
 router = routers.DefaultRouter()
-router.register(r'matched-user', Users, basename='matched-user')
+# router.register(r'matched-user', Users, basename='matched-user')
 
 
 urlpatterns = [
@@ -42,7 +42,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 
     # Router path
-    url(r'^', include(router.urls)),
+    path('matched-user/<int:user_id>', Users.as_view())
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
