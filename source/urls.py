@@ -18,9 +18,7 @@ from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
 from rest_framework import routers
-# from django.conf.urls import url, include
 from django.conf.urls.static import static
-
 # App views
 from user_authentication.views import Users
 
@@ -35,14 +33,14 @@ urlpatterns = [
     # System dashboard path
     path('admin/', admin.site.urls),
 
-    # user_authentication app's path
-    path('user/', include('user_authentication.urls')),
+    # API
+    path('matched-user/<username>/', Users.as_view()),
 
-    # API path
+    # DRF
     path('api-auth/', include('rest_framework.urls')),
 
-    # Router path
-    path('matched-user/<username>', Users.as_view())
+    # user_authentication app's path
+    path('user/', include('user_authentication.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

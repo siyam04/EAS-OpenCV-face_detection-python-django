@@ -1,5 +1,4 @@
 from django.urls import path
-
 # Same app
 from .views import input, single_user, all_users
 

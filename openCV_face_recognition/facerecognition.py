@@ -1,14 +1,15 @@
 import os
-import requests
-import face_recognition
-import numpy as np
 import cv2
+import requests
+import numpy as np
+import face_recognition
+from os.path import splitext
 
 
 # make a list of all the available images
 images = os.listdir('images')
-known_face_encodings=[]
-known_face_names=[]
+known_face_encodings = []
+known_face_names = []
 
 for i in os.listdir('images'):
     pic = face_recognition.load_image_file('images/'+i)
@@ -22,52 +23,46 @@ while True:
     # load your image
     _, frame = video_capture.read()
     frameRGB = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
-    # image_to_be_matched = face_recognition.load_image_file('testImage/enhanced.png')
 
     # encoded the loaded image into a feature vector
     image_to_be_matched_encoded = face_recognition.face_encodings(frameRGB)
 
-    if len(image_to_be_matched_encoded)>0:
+    if len(image_to_be_matched_encoded) > 0:
 
-    # iterate over each image
+        # iterate over each image
         for (i, image) in enumerate(known_face_encodings):
-
-            # load the image
-            #current_image = face_recognition.load_image_file("images/" + image)
 
             # encode the loaded image into a feature vector
             current_image_encoded = image_to_be_matched_encoded[0]
 
             # match your image with the image and check if it matches
             result = face_recognition.compare_faces([image], current_image_encoded)
-            #print(result)
 
             if result[0] == True:
                 distance = np.linalg.norm(image-current_image_encoded)
-                #print(distance)
-                #distance1 = face_recognition.face_distance(image_to_be_matched_encoded,[current_image_encoded])
-                #print(distance1)
-                #print(distance)
-                #print(result)
 
-                #check if it was a match
+                # check if it was a match
                 if distance <= 0.40:
 
-                    user_name = known_face_names[i]
-                    id = i
-                    print("----OpenCV List Data----\n" + "name: " + known_face_names[i] + "\nid: " + str(id))
+                    # Takes same username without .jpg/.png Extension
+                    user_name = splitext(known_face_names[i])[0]
 
-                    # Django API receives the Matched user ID from OpenCV
-                    URL = "http://127.0.0.1:8000/matched-user/{}".append(user_name)
+                    # Shows the username to the terminal
+                    print("\n----OpenCV List Data----\n- Name: {}".format(user_name))
 
-                    # defining a params dict for the parameters to be sent to the API
-                    # PARAMS = {'id': 2}
+                    # Django API receives the Matched username from OpenCV
+                    URL = "http://127.0.0.1:8000/matched-user/{}".format(user_name)
 
-                    # TODO: Check this condition before data send. Make sure only 201 will be sent
-                    # sending get request and saving the response as response object
+                    # Sending API get request and saving the response as response object
                     data_send = requests.get(url=URL)
 
-                    print(data_send, '\n')
+                    # Shows the RESPONSE ro the terminal based on Status
+                    if data_send.status_code == 200:
+                        print('- Already Exist! ', data_send)
+                    elif data_send.status_code == 201:
+                        print('- Created :) ', data_send)
+                    else:
+                        print('- Not Found :o', data_send)
 
     # Display the resulting image
     cv2.imshow('Video', frame)

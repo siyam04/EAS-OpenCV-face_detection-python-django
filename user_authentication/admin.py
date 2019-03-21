@@ -5,7 +5,7 @@ from user_authentication.models import Profile, Authentication
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'profile_image']
+    list_display = ['id', 'name', 'username', 'profile_image']
     list_display_links = ['name']
     list_filter = ['name', 'id']
     search_fields = ['id', 'name']

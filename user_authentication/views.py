@@ -1,12 +1,12 @@
 import json
 from datetime import datetime
 from django.urls import reverse
+from rest_framework.views import APIView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from rest_framework.views import APIView
 
 # Same app
 from .models import Profile, Authentication
@@ -16,28 +16,37 @@ from .models import Profile, Authentication
 
 class Users(APIView):
     """Receives data from OpenCV file using API"""
+
     def get(self, request, username):
         """Matching Process through API Data"""
 
-        # Receive id from OpenCV Data List
-        # username = id
-
-        # Matching OpenCV id with Permanent Object id from Database
+        # Matching OpenCV 'username' with saved 'username' from Profile Table into Database
         if Profile.objects.filter(username=username).exists():
 
-            verified_id = Profile.objects.get(username=username)
+            verified_username = Profile.objects.get(username=username)
 
-            # If matched, then save the id with Authentication table
-            attend_obj, attendance_created = Authentication.objects.get_or_create(profile=verified_id, is_active=True, date_time__date=datetime.today())
+            # If matched, then save the 'username' into Authentication table
+            attend_obj, attendance_created = Authentication.objects.get_or_create(profile=verified_username,
+                                                                                  is_active=True,
+                                                                                  date_time__date=datetime.today())
+            # Shows the received data status to the server output
+            print('\n- RECEIVED-DATA STATUS: ', attend_obj)
 
-            # TODO: Save only 1 time. Need to check a condition if this instance is already saved or NOT
             if attendance_created:
-                # Returns Status 201 for Success!
+                # Shows the attendance status to the server output
+                print('- ATTENDANCE STATUS:', attendance_created)
+
+                # Returns status 201 for successfully created!
                 return Response("Attendance Created! of {}".format(username), status=status.HTTP_201_CREATED)
+
             else:
-                return Response("Already counted", status=status.HTTP_200_OK)
+                # Shows the attendance status to the server output
+                print('- ATTENDANCE STATUS:', attendance_created)
+
+                # Returns status 200 for existence!
+                return Response("Already Counted", status=status.HTTP_200_OK)
         else:
-            # Returns Status 404 for Not Matching!
+            # Returns status 404 for not matching!
             return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)
 
 
