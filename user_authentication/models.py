@@ -6,6 +6,7 @@ class Profile(models.Model):
     """Authenticated User Profile"""
 
     name = models.CharField(max_length=50, null=False)
+    username = models.CharField(max_length=50, blank=True, null=True)
     profile_image = models.ImageField(upload_to='profile_img', blank=False)
 
     def __str__(self):

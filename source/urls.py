@@ -42,7 +42,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 
     # Router path
-    path('matched-user/<int:user_id>', Users.as_view())
+    path('matched-user/<username>', Users.as_view())
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

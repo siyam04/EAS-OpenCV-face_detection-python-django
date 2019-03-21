@@ -16,16 +16,16 @@ from .models import Profile, Authentication
 
 class Users(APIView):
     """Receives data from OpenCV file using API"""
-    def get(self, request, user_id):
+    def get(self, request, username):
         """Matching Process through API Data"""
 
         # Receive id from OpenCV Data List
-        # user_id = id
+        # username = id
 
         # Matching OpenCV id with Permanent Object id from Database
-        if Profile.objects.filter(pk=user_id).exists():
+        if Profile.objects.filter(username=username).exists():
 
-            verified_id = Profile.objects.get(pk=user_id)
+            verified_id = Profile.objects.get(username=username)
 
             # If matched, then save the id with Authentication table
             attend_obj, attendance_created = Authentication.objects.get_or_create(profile=verified_id, is_active=True, date_time__date=datetime.today())
@@ -33,7 +33,7 @@ class Users(APIView):
             # TODO: Save only 1 time. Need to check a condition if this instance is already saved or NOT
             if attendance_created:
                 # Returns Status 201 for Success!
-                return Response("Attendance Created! of {}".format(user_id), status=status.HTTP_201_CREATED)
+                return Response("Attendance Created! of {}".format(username), status=status.HTTP_201_CREATED)
             else:
                 return Response("Already counted", status=status.HTTP_200_OK)
         else:
