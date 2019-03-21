@@ -8,7 +8,7 @@
 * Open terminal here
 * Type and Hit Enter: python facerecognition.py
 
-## API
+## API (takes any username for: /galib/)
 * http://127.0.0.1:8000/matched-user/galib/
 
 ## Instructions to run Django App in the browser:
