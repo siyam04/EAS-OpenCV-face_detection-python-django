@@ -11,6 +11,8 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
 
+# class AttendanceManager(models.Manager):
+#     def 
 
 class Authentication(models.Model):
     """Changing Status of a User based on real OpenCV Data"""

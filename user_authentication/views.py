@@ -28,16 +28,14 @@ class Users(APIView):
             verified_id = Profile.objects.get(pk=user_id)
 
             # If matched, then save the id with Authentication table
-            authenticate = Authentication(profile=verified_id, is_active=True)
+            attend_obj, attendance_created = Authentication.objects.get_or_create(profile=verified_id, is_active=True, date_time__date=datetime.today())
 
             # TODO: Save only 1 time. Need to check a condition if this instance is already saved or NOT
-            authenticate.save()
-
-            # Output to the Terminal
-            print(authenticate)
-
-            # Returns Status 201 for Success!
-            return Response("Attendance Created! of {}".format(user_id), status=status.HTTP_201_CREATED)
+            if attendance_created:
+                # Returns Status 201 for Success!
+                return Response("Attendance Created! of {}".format(user_id), status=status.HTTP_201_CREATED)
+            else:
+                return Response("Already counted", status=status.HTTP_200_OK)
         else:
             # Returns Status 404 for Not Matching!
             return Response("Profile not found!", status=status.HTTP_404_NOT_FOUND)
