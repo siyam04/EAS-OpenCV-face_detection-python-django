@@ -1,39 +1,57 @@
-# Employees Attendance System
-* Powered By Django(Python), OpenCV, Deep Learning.
+# Employee Attendance System by Real-Time Face Detection
+* Powered by Python, Django, and OpenCV.
 
-## First of all, Install latest version of Python
+## OS support: Windows10 or Linux.
+* Some commands may differ depending on OS. Just google it. I'm using Windows 10.
 
-## Instructions to run OpenCV Face Detection:
-* Goto > employee_attendance_system-django/openCV_face_recognition:
-* Open terminal here
-* Type and Hit Enter: python facerecognition.py
-
-## API (takes any username for: /galib/)
-* http://127.0.0.1:8000/matched-user/galib/
-
-## Instructions to run Django App in the browser:
-* Create and active a virtual environment
-* Clone this project into virtual environment directory
-* Go to project directory where 'manage.py' file exist
+## Instructions: 
+* Install latest version of Python
+* Install and active virtual environment directory
+  1. pip install virtualenv 
+  2. Open cmd and choose destination. cd Desktop> virtualenv YourEnvironmentName 
+  3. cd YourEnvironmentName\Scripts>activate
+  4. cd.. (exit from Scripts)
+* Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName)
+* Go to project directory (GitHub repository) where 'manage.py' file exist
 * Install all the requirements: pip install -r requirements.txt
 * Run local server: python manage.py runserver
-* Type those URL to the browser: 
-* http://127.0.0.1:8000/admin/
-* http://127.0.0.1:8000/user/input/
-* http://127.0.0.1:8000/user/single-user/1/
-* http://127.0.0.1:8000/user/all-users/
 
-### Dashboard
-![dashboard](https://user-images.githubusercontent.com/23103980/53756769-2f631900-3ee4-11e9-8fb9-e042d85d23df.png)
+#### Type those URLs to the browser:
+* API: http://127.0.0.1:8000/matched-user/galib/ (API takes any username for: /galib/)
+* EAS Admin dashboard: http://127.0.0.1:8000/admin/
+* Manual input: http://127.0.0.1:8000/user/input/
+* Single object: http://127.0.0.1:8000/user/single-user/1/
+* All objects: http://127.0.0.1:8000/user/all-users/
 
-### Django Manual Input (Verification using unique ID)
-![verification_using_id](https://user-images.githubusercontent.com/23103980/53756786-3e49cb80-3ee4-11e9-9755-11cfcfd7ba6c.png)
+#### Run OpenCV Face Detection:
+* Go to project directory (GitHub repository) where 'manage.py' file exist
+* Go to openCV_face_recognition directory
+* Open cmd here
+* Type and Hit Enter: python facerecognition.py
 
-### Verification matched
-![verification_matched](https://user-images.githubusercontent.com/23103980/53756797-473a9d00-3ee4-11e9-86b9-0cd0546823ba.png)
+#### Open both CMD (local server and face recognition) and API dashboard to monitoring the outputs
+* status code 201 = Attendance created
+* status code 200 = Attendance already exists
+* status code 404 = ERROR
 
-### Single user by URL 
-![single_user_by_url_matching](https://user-images.githubusercontent.com/23103980/53756827-5a4d6d00-3ee4-11e9-9bd9-291f4e1f5bef.PNG)
+#### EAS Admin dashboard
+![EAS Dashboard](https://user-images.githubusercontent.com/23103980/54848947-de895800-4d0c-11e9-9fbb-0a9f85531d07.png)
 
-### All users
-![all_users](https://user-images.githubusercontent.com/23103980/53756814-528dc880-3ee4-11e9-9b57-569377684abb.png)
+#### API dashboard
+![API dashboard](https://user-images.githubusercontent.com/23103980/54848970-f3fe8200-4d0c-11e9-9a94-93ece9717422.PNG)
+
+#### API JSON
+![API JSON](https://user-images.githubusercontent.com/23103980/54848989-037dcb00-4d0d-11e9-8bf4-434cb38a797e.png)
+
+#### Manual Input from browser (http://127.0.0.1:8000/user/input/)
+![Manual input](https://user-images.githubusercontent.com/23103980/54849062-55beec00-4d0d-11e9-96c4-ce0cf7b86cab.png)
+
+#### Verification matched for single object
+![Single object matching](https://user-images.githubusercontent.com/23103980/54849105-7d15b900-4d0d-11e9-8967-18e5c86aca60.png)
+
+#### Single object by URL (http://127.0.0.1:8000/user/single-user/1/)
+![Single object matching](https://user-images.githubusercontent.com/23103980/54849253-e3024080-4d0d-11e9-9512-a3b2a808ca7e.png)
+
+#### All objects by URL (http://127.0.0.1:8000/user/all-users/)
+![All objects from the Database](https://user-images.githubusercontent.com/23103980/54849293-01683c00-4d0e-11e9-9176-fd04610cfe1a.png)
+
