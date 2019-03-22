@@ -7,13 +7,14 @@
 ## Instructions: 
 * Install latest version of Python
 * Install and active virtual environment directory
-  1. pip install virtualenv 
-  2. Open cmd and choose destination. cd Desktop> virtualenv YourEnvironmentName 
-  3. cd YourEnvironmentName\Scripts>activate
-  4. cd.. (exit from Scripts)
+  1. Open cmd
+  2. pip install virtualenv 
+  3. Choose destination: cd Desktop> virtualenv YourEnvironmentName 
+  4. cd YourEnvironmentName\Scripts>activate
+  5. cd.. (exit from Scripts)
 * Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName)
 * Go to project directory (GitHub repository) where 'manage.py' file exist
-* Install all the requirements: pip install -r requirements.txt
+* Install all the requirements using previously opened cmd where the virtual environment was activated: pip install -r requirements.txt
 * Run local server: python manage.py runserver
 
 #### Type those URLs to the browser:
