@@ -2,7 +2,7 @@
 * Powered by Python, Django, and OpenCV.
 
 ## OS support: Windows10 or Linux.
-* Some commands may differ depending on OS. Just google it. I'm using Windows 10.
+* Some commands may differ depending on OS. Just google it.
 
 ## Instructions: 
 * Install latest version of Python
