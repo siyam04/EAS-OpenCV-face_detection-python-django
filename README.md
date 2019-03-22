@@ -20,7 +20,7 @@
 * API: http://127.0.0.1:8000/matched-user/galib/ (API takes any username for: /galib/)
 * EAS Admin dashboard: http://127.0.0.1:8000/admin/
 * Manual input: http://127.0.0.1:8000/user/input/
-* Single object: http://127.0.0.1:8000/user/single-user/1/
+* Single object: http://127.0.0.1:8000/user/single-user/galib/ (takes any username for: /galib/)
 * All objects: http://127.0.0.1:8000/user/all-users/
 
 #### Run OpenCV Face Detection:
@@ -49,7 +49,7 @@
 #### Verification matched for single object
 ![Single object matching](https://user-images.githubusercontent.com/23103980/54849105-7d15b900-4d0d-11e9-8967-18e5c86aca60.png)
 
-#### Single object by URL (http://127.0.0.1:8000/user/single-user/1/)
+#### Single object by URL (http://127.0.0.1:8000/user/single-user/galib/)
 ![Single object matching](https://user-images.githubusercontent.com/23103980/54849253-e3024080-4d0d-11e9-9512-a3b2a808ca7e.png)
 
 #### All objects by URL (http://127.0.0.1:8000/user/all-users/)
