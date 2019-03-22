@@ -15,9 +15,9 @@
 * Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName)
 * Go to project directory (GitHub repository) where 'manage.py' file exist
 * Install all the requirements using previously opened cmd where the virtual environment was activated: 
-    pip install -r requirements.txt
+  pip install -r requirements.txt
 * Run local server:
-    python manage.py runserver
+  python manage.py runserver
 
 #### Type those URLs to the browser:
 * API: http://127.0.0.1:8000/matched-user/galib/ (API takes any username for: /galib/)
