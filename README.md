@@ -38,6 +38,12 @@
 * status code 200 = Attendance already exists
 * status code 404 = ERROR
 
+#### Server cmd output
+![BackEnd server output](https://user-images.githubusercontent.com/23103980/54853075-f36be880-4d18-11e9-8c19-27ecb7d8e12a.PNG)
+
+#### OpenCV cmd output
+![OpenCV server output](https://user-images.githubusercontent.com/23103980/54853120-17c7c500-4d19-11e9-8d0e-d97e295b4204.PNG)
+
 #### EAS Admin dashboard
 ![EAS Dashboard](https://user-images.githubusercontent.com/23103980/54848947-de895800-4d0c-11e9-9fbb-0a9f85531d07.png)
 
