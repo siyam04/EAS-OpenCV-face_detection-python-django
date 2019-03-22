@@ -25,10 +25,11 @@ SECRET_KEY = 'kz)ngzlbrs)7-m*_k2&2qgyod2#p*f#_!32(5a_9o&(t6miw-i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Deploy to the main server
 ALLOWED_HOSTS = []
 
 
-# Debugging Toolbar Adding
+# Debug toolbar actives for this PORT
 INTERNAL_IPS = ['127.0.0.1']
 
 
@@ -44,12 +45,11 @@ INSTALLED_APPS = [
 
     # Django REST API
     'rest_framework',
-    # 'rest_framework.authtoken',
 
-    # Third-party App
+    # Library
     'debug_toolbar',
 
-    # Custom Apps
+    # Custom app
     'user_authentication',
 
 ]
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    # Debug Toolbar Middleware Adding
+    # Middleware for debug toolbar
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
@@ -123,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+# Local time generating
 TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
@@ -135,11 +136,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+
+# Joined 'static' directory with Django
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+
+# Joined 'media' directory with Django
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

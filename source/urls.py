@@ -17,17 +17,13 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
-from rest_framework import routers
 from django.conf.urls.static import static
+
 # App views
-from user_authentication.views import Users
+from user_authentication.api.views import Users
 
 
-# Router DRF
-router = routers.DefaultRouter()
-# router.register(r'matched-user', Users, basename='matched-user')
-
-
+# Project source paths
 urlpatterns = [
 
     # System dashboard path
@@ -46,7 +42,7 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-# Debugging toolbar integration
+# Debugging toolbar integration for browser
 if settings.DEBUG:
     import debug_toolbar
 

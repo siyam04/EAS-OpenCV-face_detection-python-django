@@ -14,11 +14,11 @@
     <form method="post" action="{% url 'input' %}">
         {% csrf_token %}
 
-        <h4>input here</h4>
+        <h4>input 'username' here</h4>
 
-        <input type="number" min="1" name="id" value="Submit" placeholder="enter an ID..." required>
+        <input type="text" min="1" name="username" placeholder="enter username..." required>
         <br><br>
-        <input type="submit" value="SUBMIT">
+        <button type="submit">SUBMIT</button>
     </form>
 
 </body>

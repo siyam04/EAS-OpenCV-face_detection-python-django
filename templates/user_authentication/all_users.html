@@ -7,8 +7,9 @@
 
 <body style="background-color: lightblue">
 
-    <h1>All Users</h1>
+    <h1>All Users from Database</h1>
     <hr>
+    <button type="submit"><a href="{% url 'input' %}">Back to Input</a></button>
     <hr>
 
     {% for users in user_data_all %}
@@ -17,8 +18,9 @@
             <img src="{{ users.profile_image.url }}" alt="image" width="240">
         {% endif %}
 
-            <h2>id: {{ users.id }}</h2>
-            <h2>name: {{ users.name }}</h2>
+        <h2>Username: <span style="color: orangered">{{ users.username }}</span></h2>
+        <h2>Database ID: <span style="color: orangered">{{ users.id }}</span></h2>
+        <h2>Profile Name: <span style="color: orangered">{{ users.name }}</span></h2>
         <hr>
     {% endfor %}
 

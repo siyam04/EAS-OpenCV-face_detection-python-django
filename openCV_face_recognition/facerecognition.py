@@ -51,7 +51,7 @@ while True:
                     print("\n----OpenCV List Data----\n- Name: {}".format(user_name))
 
                     # Django API receives the Matched username from OpenCV
-                    URL = "http://127.0.0.1:8000/matched-user/{}".format(user_name)
+                    URL = "http://127.0.0.1:8000/matched-user/{}/".format(user_name)
 
                     # Sending API get request and saving the response as response object
                     data_send = requests.get(url=URL)

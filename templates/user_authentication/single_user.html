@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single User</title>
+</head>
+
+<body style="background-color: lightblue">
+
+    <h1 style="color: forestgreen">Username <span style="color: orangered">{{ profile.username }}</span> Matched!</h1>
+    <hr>
+    <button type="submit"><a href="{% url 'input' %}">Back to Input</a></button>
+    <button type="submit"><a href="{% url 'all-users' %}">See All Users</a></button>
+    <hr>
+
+    {% if profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}" alt="image" width="240">
+    {% endif %}
+
+    <h1>Username: <span style="color: orangered">{{ profile.username }}</span></h1>
+    <h1>Profile Name: <span style="color: orangered">{{ profile.name }}</span></h1>
+    <h1>Database ID: <span style="color: orangered">{{ profile.id }}</span></h1>
+    <hr>
+
+</body>
+</html>
