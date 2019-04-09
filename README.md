@@ -12,8 +12,10 @@
   3. Choose destination: cd Desktop> virtualenv YourEnvironmentName 
   4. cd YourEnvironmentName\Scripts>activate
   5. cd.. (exit from Scripts)
+  
 * Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName)
 * Go to project directory (GitHub repository) where 'manage.py' file exist
+
 * Install all the requirements using previously opened cmd where the virtual environment was activated: 
   1. pip install -r requirements.txt
 * Run local server:
@@ -44,8 +46,11 @@
 #### OpenCV cmd output
 ![OpenCV server output](https://user-images.githubusercontent.com/23103980/54853120-17c7c500-4d19-11e9-8d0e-d97e295b4204.PNG)
 
-#### EAS Admin dashboard
+#### EAS Database
 ![EAS Dashboard](https://user-images.githubusercontent.com/23103980/54848947-de895800-4d0c-11e9-9fbb-0a9f85531d07.png)
+
+#### Real-Time Attendance Creating
+![Real-Time Attendance Counting](https://user-images.githubusercontent.com/23103980/55796650-4d77f680-5aec-11e9-975e-3f267d5c9371.png)
 
 #### API dashboard
 ![API dashboard](https://user-images.githubusercontent.com/23103980/54848970-f3fe8200-4d0c-11e9-9a94-93ece9717422.PNG)
@@ -54,14 +59,16 @@
 ![API JSON](https://user-images.githubusercontent.com/23103980/54848989-037dcb00-4d0d-11e9-8bf4-434cb38a797e.png)
 
 #### Manual Input from browser (http://127.0.0.1:8000/user/input/)
-![Manual input](https://user-images.githubusercontent.com/23103980/54852796-1e097180-4d18-11e9-9d9a-fc9144491996.png)
+![Manual input](https://user-images.githubusercontent.com/23103980/55796671-5cf73f80-5aec-11e9-8531-4a6ca2f3b895.png)
 
 #### Verification matched for single object
-![Single object matching](https://user-images.githubusercontent.com/23103980/54849105-7d15b900-4d0d-11e9-8967-18e5c86aca60.png)
-
-#### Single object by URL (http://127.0.0.1:8000/user/single-user/galib/)
-![Single object matching](https://user-images.githubusercontent.com/23103980/54849253-e3024080-4d0d-11e9-9512-a3b2a808ca7e.png)
+![Single object matching](https://user-images.githubusercontent.com/23103980/55796689-67b1d480-5aec-11e9-87c9-7f6d6c07ffa9.png)
 
 #### All objects by URL (http://127.0.0.1:8000/user/all-users/)
 ![All objects from the Database](https://user-images.githubusercontent.com/23103980/54849293-01683c00-4d0e-11e9-9176-fd04610cfe1a.png)
+
+#### Single object by URL (http://127.0.0.1:8000/user/single-user/galib/)
+![Single object matching](https://user-images.githubusercontent.com/23103980/55796689-67b1d480-5aec-11e9-87c9-7f6d6c07ffa9.png)
+
+
 
