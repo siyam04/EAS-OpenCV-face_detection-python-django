@@ -65,7 +65,7 @@
 ![Single object matching](https://user-images.githubusercontent.com/23103980/55796689-67b1d480-5aec-11e9-87c9-7f6d6c07ffa9.png)
 
 #### All objects by URL (http://127.0.0.1:8000/user/all-users/)
-![All objects from the Database](https://user-images.githubusercontent.com/23103980/54849293-01683c00-4d0e-11e9-9176-fd04610cfe1a.png)
+![All objects from the Database](https://user-images.githubusercontent.com/23103980/55796824-afd0f700-5aec-11e9-9136-af7afc536301.png)
 
 #### Single object by URL (http://127.0.0.1:8000/user/single-user/galib/)
 ![Single object matching](https://user-images.githubusercontent.com/23103980/55796689-67b1d480-5aec-11e9-87c9-7f6d6c07ffa9.png)
