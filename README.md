@@ -47,7 +47,7 @@
 ![OpenCV server output](https://user-images.githubusercontent.com/23103980/54853120-17c7c500-4d19-11e9-8d0e-d97e295b4204.PNG)
 
 #### EAS Database
-![EAS Dashboard](https://user-images.githubusercontent.com/23103980/54848947-de895800-4d0c-11e9-9fbb-0a9f85531d07.png)
+![EAS Dashboard](https://user-images.githubusercontent.com/23103980/55824739-508fd880-5b26-11e9-94a9-b9a700646a3e.png)
 
 #### Real-Time Attendance Creating
 ![Real-Time Attendance Counting](https://user-images.githubusercontent.com/23103980/55796650-4d77f680-5aec-11e9-975e-3f267d5c9371.png)
