@@ -1,10 +1,8 @@
 # Employee Attendance System by Real-Time Face Detection
 * Powered by Python, Django, and OpenCV.
 
-## OS support: Windows10 or Linux.
-* Some commands may differ depending on OS. Just google it.
-
-## Instructions: 
+## Instructions (Windows 10):
+* Some commands may differ depending on OS.
 * Install latest version of Python
 * Install and active virtual environment directory
   1. Open cmd
