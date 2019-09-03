@@ -1,42 +1,48 @@
-# Employee Attendance System by Real-Time Face Detection
-* Powered by Python, Django, and OpenCV.
+# Employee Attendance System by Real-Time Face Detection.
+* Developed By Python, Django REST Framework, and OpenCV.
 
-## Instructions (Windows 10):
-* Some commands may differ depending on OS.
-* Install latest version of Python
+## Instructions (Windows 10x64):
+* Some commands may differ depending on OS. Just google it.
+
+* Install latest version of Python3 (64 bit).
+
 * Install and active virtual environment directory
   1. Open cmd
-  2. pip install virtualenv 
-  3. Choose destination: cd Desktop> virtualenv YourEnvironmentName 
-  4. cd YourEnvironmentName\Scripts>activate
-  5. cd.. (exit from Scripts)
+  2. :~$ pip install virtualenv 
+  3. Choose destination: :~$ cd Desktop> virtualenv YourEnvironmentName 
+  4. :~$ cd YourEnvironmentName\Scripts>
+  5. :~$ activate
+  6. (YourEnvironmentName):~$ This '(YourEnvironmentName)' sign will be shown up if virtual environment activated successfully.
+  6. :~$ cd.. (exit from Scripts)
   
-* Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName)
-* Go to project directory (GitHub repository) where 'manage.py' file exist
+* Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName).
 
-* Install all the requirements using previously opened cmd where the virtual environment was activated: 
-  1. pip install -r requirements.txt
-* Run local server:
-  1. python manage.py runserver
+* Go to project directory (GitHub repository) where 'manage.py' file exist.
 
-#### Type those URLs to the browser:
-* API: http://127.0.0.1:8000/matched-user/galib/ (API takes any username for: /galib/)
-* EAS Admin dashboard: http://127.0.0.1:8000/admin/
-* Manual input: http://127.0.0.1:8000/user/input/
-* Single object: http://127.0.0.1:8000/user/single-user/galib/ (takes any username for: /galib/)
-* All objects: http://127.0.0.1:8000/user/all-users/
+* Install all the requirements using previously opened CMD where the virtual environment was activated:
+  >> (venv):~$ pip install -r requirements.txt
+  
+* Run Local Server:
+  >> (venv):~$ python manage.py runserver
 
-#### Run OpenCV Face Detection:
-* Go to project directory (GitHub repository) where 'manage.py' file exist
-* Go to openCV_face_recognition directory
-* Open cmd here
-* Type and Hit Enter:
-  1. python facerecognition.py
+* PATHs:
+  1. API: http://127.0.0.1:8000/matched-user/galib/ (API takes any username for: /galib/)
+  2. EAS Admin dashboard: http://127.0.0.1:8000/admin/
+  3. Manual input: http://127.0.0.1:8000/user/input/
+  4. Single object: http://127.0.0.1:8000/user/single-user/galib/ (takes any username for: /galib/)
+  5. All objects: http://127.0.0.1:8000/user/all-users/
 
-#### Open both CMD (local server and face recognition) and API dashboard to monitoring the outputs
-* status code 201 = Attendance created
-* status code 200 = Attendance already exists
-* status code 404 = ERROR
+* Run OpenCV Face Detection:
+  1.Go to project directory (GitHub repository) where 'manage.py' file exist
+  2. Go to openCV_face_recognition directory
+  3. Open cmd here
+  4. Type and Hit Enter:
+     >> (venv):~$ python facerecognition.py
+
+* Open both CMD (local server and face recognition) and API dashboard to monitoring the outputs
+  1. status code 201 = Attendance created
+  2. status code 200 = Attendance already exists
+  3. status code 404 = ERROR
 
 #### Server cmd output
 ![BackEnd server output](https://user-images.githubusercontent.com/23103980/54853075-f36be880-4d18-11e9-8c19-27ecb7d8e12a.PNG)
