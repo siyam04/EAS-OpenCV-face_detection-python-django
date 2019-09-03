@@ -37,7 +37,7 @@
   5. All objects: http://127.0.0.1:8000/user/all-users/
 
 * Run OpenCV Face Detection:
-  1.Go to project directory (GitHub repository) where 'manage.py' file exist
+  1. Go to project directory (GitHub repository) where 'manage.py' file exist
   2. Go to openCV_face_recognition directory
   3. Open cmd here
   4. Type and Hit Enter:
