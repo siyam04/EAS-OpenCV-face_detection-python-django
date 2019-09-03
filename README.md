@@ -10,14 +10,18 @@
   1. Open cmd
   2. :~$ pip install virtualenv 
   3. Choose destination: :~$ cd Desktop> virtualenv YourEnvironmentName 
-  4. :~$ cd YourEnvironmentName\Scripts>
-  5. :~$ activate
-  6. (YourEnvironmentName):~$ This '(YourEnvironmentName)' sign will be shown up if virtual environment activated successfully.
-  6. :~$ cd../.. (exit from Scripts)
   
-* Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName).
+* Clone this GitHub repository into local machine.
 
 * Go to project directory (GitHub repository) where 'manage.py' file exist.
+
+* Copy 'YourEnvironmentName' folder to the 'GitHub repository'.
+
+* Active virtual environment:
+  1. :~$ cd YourEnvironmentName\Scripts>
+  2. :~$ activate
+  3. (YourEnvironmentName):~$ This '(YourEnvironmentName)' sign will be shown up if virtual environment activated successfully.
+  4. :~$ cd../.. (exit from Scripts)
 
 * Install all the requirements using previously opened CMD where the virtual environment was activated:
   >> (YourEnvironmentName):~$ pip install -r requirements.txt
