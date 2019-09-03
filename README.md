@@ -20,10 +20,10 @@
 * Go to project directory (GitHub repository) where 'manage.py' file exist.
 
 * Install all the requirements using previously opened CMD where the virtual environment was activated:
-  >> (venv):~$ pip install -r requirements.txt
+  >> (YourEnvironmentName):~$ pip install -r requirements.txt
   
 * Run Local Server:
-  >> (venv):~$ python manage.py runserver
+  >> (YourEnvironmentName):~$ python manage.py runserver
 
 * PATHs:
   1. API: http://127.0.0.1:8000/matched-user/galib/ (API takes any username for: /galib/)
@@ -37,7 +37,7 @@
   2. Go to openCV_face_recognition directory
   3. Open cmd here
   4. Type and Hit Enter:
-     >> (venv):~$ python facerecognition.py
+     >> (YourEnvironmentName):~$ python facerecognition.py
 
 * Open both CMD (local server and face recognition) and API dashboard to monitoring the outputs
   1. status code 201 = Attendance created
