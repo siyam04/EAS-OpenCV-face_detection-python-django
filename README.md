@@ -13,7 +13,7 @@
   4. :~$ cd YourEnvironmentName\Scripts>
   5. :~$ activate
   6. (YourEnvironmentName):~$ This '(YourEnvironmentName)' sign will be shown up if virtual environment activated successfully.
-  6. :~$ cd.. (exit from Scripts)
+  6. :~$ cd../.. (exit from Scripts)
   
 * Clone this GitHub repository into your local virtual environment directory (YourEnvironmentName).
 
