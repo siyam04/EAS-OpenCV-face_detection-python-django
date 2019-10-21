@@ -24,7 +24,7 @@ jsonfield==2.0.2
 Markdown==2.6.11
 markdown2==2.3.5
 mathparse==0.1.2
-nltk==3.4
+nltk==3.4.5
 numpy==1.16.2
 oauthlib==2.1.0
 opencv-python==4.0.0.21
