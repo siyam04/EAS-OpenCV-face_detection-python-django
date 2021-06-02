@@ -22,7 +22,7 @@ gunicorn==19.9.0
 idna==2.6
 jsonfield==2.0.2
 Markdown==2.6.11
-markdown2==2.3.5
+markdown2==2.4.0
 mathparse==0.1.2
 nltk==3.4
 numpy==1.16.2
