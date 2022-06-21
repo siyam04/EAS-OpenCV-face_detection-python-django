@@ -25,7 +25,7 @@ Markdown==2.6.11
 markdown2==2.3.5
 mathparse==0.1.2
 nltk==3.4
-numpy==1.16.2
+numpy==1.22.0
 oauthlib==2.1.0
 opencv-python==4.0.0.21
 Pillow==5.1.0
